@@ -1,10 +1,10 @@
-const API = 'https://api.quran.com/api/v4/search?q=%D8%B9%D9%8A%D8%B3%D9%89';
-const String = '?q=';
-const any = 'عيسى';
+const API = 'https://api.quran.com/api/v4/';
+const String = 'search?q=';
 
-const GetFromAPI = async () => {
+const GetFromAPI = async (any) => {
   const respone = await fetch(API + String + any);
   const search = await respone.json();
+  console.log(search);
   return search;
 };
 
