@@ -8,10 +8,10 @@ const results = document.getElementById('results');
 
 const CreateModal = (data) => {
   data.forEach((e) => {
-    results.innerHTML += `<div class="card" style="width: 18rem;">
+    results.innerHTML += `<div class="cards text-white bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Verse Number is : ${ApiRun.GetVersenumber(e.verse_key)}</div>
     <div class="card-body">
-      <h5 class="card-title">Verse Number is : ${ApiRun.GetVersenumber(e.verse_key)}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Juz Number is :${ApiRun.GetPartenumber(e.verse_key)}</h6>
+      <h6 class="card-title">Juz Number is :${ApiRun.GetPartenumber(e.verse_key)}</h6>
       <p class="card-text">${(e.text)}</p>
     </div>
     </div>`;
@@ -20,7 +20,7 @@ const CreateModal = (data) => {
 
 const GetInput = async () => {
   const Input = document.getElementById('data').value;
-  ApiRun.GetFromAPI(Input);
+  await ApiRun.GetFromAPI(Input);
 };
 
 Search.addEventListener('click', GetInput);
